@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lot Sizer</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <h2>Contract Lot Calculator</h2>
+
+  <label>
+    Symbol ($ / pt):
+    <select id="symbol">
+      <option value="2">MNQ – $2 per point</option>
+	  <option value="5">MES – $5 per point</option>
+ 	  <option value="10">MGC – $10 per point</option>
+	  <option value="20">NQ – $20 per point</option>
+	  <option value="50">ES – $50 per point</option>
+	  <!--<option value="100">GC – $100 per point</option> -->
+      <!-- add more symbols as needed -->
+    </select>
+  </label>
+
+  <label>
+    Risk per Trade ($):
+    <input type="number" id="risk" value="300" min="0" step="1" />
+  </label>
+
+  <div class="button‑row">
+    <button id="halfR">½ R</button>
+    <button id="fullR" class="active">Full R</button>
+  </div>
+
+  <label>
+    Hard Stop Loss (pts) <strong>*</strong>:
+    <input type="number" id="hardStop" value="20" min="0" step="0.25" required />
+  </label>
+
+  <label>
+    Soft Stop Loss (pts) <span style="opacity:.6">(optional)</span>:
+    <input type="number" id="softStop" placeholder="leave blank if none" min="0" step="0.25" />
+  </label>
+
+  <button id="calc" class="calc">Calculate</button>
+
+  <hr />
+
+  <div id="results"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
